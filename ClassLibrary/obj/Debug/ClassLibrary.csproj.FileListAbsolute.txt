@@ -4,3 +4,9 @@ D:\Skeleton\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReferenc
 D:\Skeleton\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
 D:\Skeleton\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.dll
 D:\Skeleton\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\atomi\Desktop\GarageManagementSystem\Car-Garage-Skeleton\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\atomi\Desktop\GarageManagementSystem\Car-Garage-Skeleton\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\atomi\Desktop\GarageManagementSystem\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\atomi\Desktop\GarageManagementSystem\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\atomi\Desktop\GarageManagementSystem\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\atomi\Desktop\GarageManagementSystem\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.pdb
