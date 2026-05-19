@@ -19,6 +19,14 @@ namespace Testing4
         public void TestInvoiceIdProperty()
         {
             clsInvoicing invoicing = new clsInvoicing();
+            invoicing.InvoiceId = 1;
+            Assert.AreEqual(1, invoicing.InvoiceId);
+        }
+
+        [TestMethod]
+        public void TestTotalAmountProperty()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
             invoicing.TotalAmount = 99.99m;
             Assert.AreEqual(99.99m, invoicing.TotalAmount);
         }
