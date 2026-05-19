@@ -23,6 +23,7 @@ namespace Testing4
             Assert.AreEqual(1, invoicing.InvoiceId);
         }
 
+        [TestMethod]
         public void TestTotalAmountProperty()
         {
             clsInvoicing invoicing = new clsInvoicing();
