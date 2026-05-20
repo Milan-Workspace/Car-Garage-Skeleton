@@ -24,6 +24,40 @@ namespace Testing4
         }
 
         [TestMethod]
+        public void TestServiceIdProperty()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            invoicing.ServiceId = 1;
+            Assert.AreEqual(1, invoicing.ServiceId);
+        }
+
+        [TestMethod]
+        public void TestIssueDateProperty()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            DateTime testData = DateTime.Now.Date;
+            invoicing.IssueDate = testData;
+            Assert.AreEqual(testData, invoicing.IssueDate);
+        }
+
+        [TestMethod]
+        public void TestPaymentDateProperty()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            DateTime testData = DateTime.Now.Date;
+            invoicing.PaymentDate = testData;
+            Assert.AreEqual(testData, invoicing.PaymentDate);
+        }
+
+        [TestMethod]
+        public void TestIsPaidProperty()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            invoicing.IsPaid = true;
+            Assert.IsTrue(invoicing.IsPaid);
+        }
+
+        [TestMethod]
         public void TestTotalAmountProperty()
         {
             clsInvoicing invoicing = new clsInvoicing();
