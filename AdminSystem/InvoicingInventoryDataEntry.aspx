@@ -9,6 +9,8 @@
 <body>
     This is the Invoice Data Entry Page
     <form id="form1" runat="server">
+        <br />
+
         <div>
             <label>Select Service:</label>
             <asp:DropDownList ID="ddlServices" runat="server"></asp:DropDownList>
