@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClassLibrary;
 
 public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack == false)
+        if (!IsPostBack)
         {
             Session["CustomerID"] = null;
             DisplayCustomers("");
@@ -19,11 +18,26 @@ public partial class _1_List : System.Web.UI.Page
 
     void DisplayCustomers(string lastNameFilter)
     {
-        clsCustomerCollection Customers = new clsCustomerCollection();
-        if (lastNameFilter != "")
-            Customers.ReportByLastName(lastNameFilter);
-        gvCustomers.DataSource = Customers.CustomerList;
-        gvCustomers.DataBind();
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd;
+            if (lastNameFilter == "")
+            {
+                cmd = new SqlCommand("sproc_tbl_CustomerSelectAll", conn);
+            }
+            else
+            {
+                cmd = new SqlCommand("sproc_tbl_CustomerFilterByLastName", conn);
+                cmd.Parameters.AddWithValue("@LastName", lastNameFilter);
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            gvCustomers.DataSource = dt;
+            gvCustomers.DataBind();
+        }
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
