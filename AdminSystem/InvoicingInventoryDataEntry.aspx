@@ -9,6 +9,8 @@
 <body>
     This is the Invoice Data Entry Page
     <form id="form1" runat="server">
+        <br />
+
         <div>
             <label>Select Service:</label>
             <asp:DropDownList ID="ddlServices" runat="server"></asp:DropDownList>
@@ -25,13 +27,13 @@
         </div>
 
         <div>
-            <label>Total Amount:</label>
-            <asp:TextBox ID="txtTotalAmount" runat="server" TextMode="Number" Step="0.01"></asp:TextBox>
+            <label>Is Paid:</label>
+            <asp:CheckBox ID="chkIsPaid" runat="server" />
         </div>
 
         <div>
-            <label>Is Paid:</label>
-            <asp:CheckBox ID="chkIsPaid" runat="server" />
+            <label>Total Amount:</label>
+            <asp:TextBox ID="txtTotalAmount" runat="server" TextMode="Number" Step="0.01"></asp:TextBox>
         </div>
 
         <asp:Button ID="btnSubmit" runat="server" Text="Create Invoice" onClick="btnSubmit_Click" />
