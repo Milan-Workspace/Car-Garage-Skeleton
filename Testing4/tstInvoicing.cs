@@ -7,6 +7,7 @@ namespace Testing4
     [TestClass]
     public class tstInvoicing
     {
+        // Instantiation Test
         [TestMethod]
         public void TestInvoicingInstantiation()
         {
@@ -15,6 +16,7 @@ namespace Testing4
             Assert.IsNotNull(invoicing);
         }
 
+        // Property Tests
         [TestMethod]
         public void TestInvoiceIdProperty()
         {
@@ -44,17 +46,18 @@ namespace Testing4
         public void TestPaymentDateProperty()
         {
             clsInvoicing invoicing = new clsInvoicing();
-            DateTime testData = DateTime.Now.Date;
-            invoicing.PaymentDate = testData;
-            Assert.AreEqual(testData, invoicing.PaymentDate);
+            DateTime TestData = DateTime.Now.Date;
+            invoicing.PaymentDate = TestData;
+            Assert.AreEqual(invoicing.PaymentDate, TestData);
         }
 
         [TestMethod]
         public void TestIsPaidProperty()
         {
             clsInvoicing invoicing = new clsInvoicing();
-            invoicing.IsPaid = true;
-            Assert.IsTrue(invoicing.IsPaid);
+            Boolean TestData = true;
+            invoicing.IsPaid = TestData;
+            Assert.AreEqual(invoicing.IsPaid, TestData);
         }
 
         [TestMethod]
@@ -63,6 +66,116 @@ namespace Testing4
             clsInvoicing invoicing = new clsInvoicing();
             invoicing.TotalAmount = 99.99m;
             Assert.AreEqual(99.99m, invoicing.TotalAmount);
+        }
+
+        // Find Method Tests
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            int InvoiceId = 1;
+            Found = invoicing.Find(InvoiceId);
+        }
+
+        [TestMethod]
+        public void TestInvoiceIdFound()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            Boolean OK = true;
+            int invoiceId = 1;
+            Found = invoicing.Find(invoiceId);
+
+            if (invoicing.InvoiceId != 1)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestServiceIdFound()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            Boolean OK = true;
+            int serviceId = 1;
+            Found = invoicing.Find(serviceId);
+
+            if (invoicing.ServiceId != 1)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestIssueDateFound()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            Boolean OK = true;
+            int IssueDate = 1;
+            Found = invoicing.Find(IssueDate);
+
+            if (invoicing.IssueDate != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPaymentDateFound()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            Boolean OK = true;
+            int PaymentDate = 1;
+            Found = invoicing.Find(PaymentDate);
+
+            if (invoicing.PaymentDate != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        public void TestIsPaidFound()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            Boolean OK = true;
+            int IsPaid = 1;
+            Found = invoicing.Find(IsPaid);
+
+            if (invoicing.IsPaid != true)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        public void TestTotalAmountFound()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            Boolean Found = false;
+            Boolean OK = true;
+            int TotalAmount = 1;
+            Found = invoicing.Find(TotalAmount);
+
+            if (invoicing.TotalAmount != Convert.ToDecimal(99.99m))
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
         }
     }
 }
