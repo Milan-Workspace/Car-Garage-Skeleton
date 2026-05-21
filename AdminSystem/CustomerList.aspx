@@ -38,6 +38,8 @@
                         CommandArgument='<%# Eval("CustomerID") %>' OnClick="btnEdit_Click" />
                     <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn btn-sm btn-danger"
                         CommandArgument='<%# Eval("CustomerID") %>' OnClick="btnDelete_Click" />
+                    <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-sm btn-info"
+                        CommandArgument='<%# Eval("CustomerID") %>' OnClick="btnView_Click" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
