@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
@@ -16,6 +17,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             LoadServices();
         }
+    }
+
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        clsInvoicing invoicing = new clsInvoicing();
+        invoicing.ServiceId = int.Parse(ddlServices.SelectedValue);
+        invoicing.IssueDate = DateTime.Parse(txtIssueDate.Text);
+        invoicing.PaymentDate = DateTime.Parse(txtPaymentDate.Text);
+        invoicing.IsPaid = chkIsPaid.Checked;
+        invoicing.TotalAmount = decimal.Parse(txtTotalAmount.Text);
+        Session["invoicing"] = invoicing;
+        Response.Redirect("InvoicingInventoryViewer.aspx");
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
