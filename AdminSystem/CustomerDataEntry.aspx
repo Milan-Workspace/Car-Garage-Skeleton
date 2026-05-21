@@ -25,6 +25,9 @@
         <label class="form-label">Phone</label>
         <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" />
     </div>
+    <div class="mb-3">
+    <asp:CheckBox ID="chkIsActive" runat="server" Text=" Active" Checked="true" />
+    </div>
     <asp:Button ID="btnOK" runat="server" Text="OK" CssClass="btn btn-primary" OnClick="btnOK_Click" />
     <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-secondary ms-2" OnClick="btnCancel_Click" />
     <br /><br />

@@ -1,69 +1,93 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack == false)
+        if (!IsPostBack)
         {
             if (Session["CustomerID"] != null)
-            {
                 DisplayCustomer();
-            }
         }
     }
 
     void DisplayCustomer()
     {
-        clsCustomer ACustomer = new clsCustomer();
-        int CustomerID = Convert.ToInt32(Session["CustomerID"]);
-        ACustomer.Find(CustomerID);
-        txtFirstName.Text = ACustomer.FirstName;
-        txtLastName.Text = ACustomer.LastName;
-        txtEmail.Text = ACustomer.Email;
-        txtPhone.Text = ACustomer.Phone;
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            using (SqlCommand cmd = new SqlCommand("sproc_tbl_CustomerSelectByID", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CustomerID", Convert.ToInt32(Session["CustomerID"]));
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    txtFirstName.Text = reader["FirstName"].ToString();
+                    txtLastName.Text = reader["LastName"].ToString();
+                    txtEmail.Text = reader["Email"].ToString();
+                    txtPhone.Text = reader["PhoneNumber"].ToString();
+                    chkIsActive.Checked = Convert.ToBoolean(reader["isActive"]);
+                }
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        clsCustomer ACustomer = new clsCustomer();
+        string firstName = txtFirstName.Text;
+        string lastName = txtLastName.Text;
+        string email = txtEmail.Text;
+        string phone = txtPhone.Text;
 
-        string FirstName = txtFirstName.Text;
-        string LastName = txtLastName.Text;
-        string Email = txtEmail.Text;
-        string Phone = txtPhone.Text;
+        ClassLibrary.clsCustomer ACustomer = new ClassLibrary.clsCustomer();
+        string error = ACustomer.Valid(firstName, lastName, email, phone);
 
-        string Error = ACustomer.Valid(FirstName, LastName, Email, Phone);
-
-        if (Error == "")
+        if (error != "")
         {
-            ACustomer.FirstName = FirstName;
-            ACustomer.LastName = LastName;
-            ACustomer.Email = Email;
-            ACustomer.Phone = Phone;
-            ACustomer.IsActive = true;
-            ACustomer.DateRegistered = DateTime.Now;
+            lblError.Text = "Please fix the following errors: " + error;
+            return;
+        }
 
-            clsCustomerCollection CustomerList = new clsCustomerCollection();
-            CustomerList.ThisCustomer = ACustomer;
-
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
             if (Session["CustomerID"] == null)
-                CustomerList.Add();
+            {
+                using (SqlCommand cmd = new SqlCommand("sproc_tbl_CustomerAdd", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@FirstName", firstName);
+                    cmd.Parameters.AddWithValue("@LastName", lastName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Phone", phone);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
             else
-                CustomerList.Update();
-
-            Response.Redirect("CustomerList.aspx");
+            {
+                using (SqlCommand cmd = new SqlCommand("sproc_tbl_CustomerUpdate", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CustomerID", Convert.ToInt32(Session["CustomerID"]));
+                    cmd.Parameters.AddWithValue("@FirstName", firstName);
+                    cmd.Parameters.AddWithValue("@LastName", lastName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Phone", phone);
+                    cmd.Parameters.AddWithValue("@IsActive", chkIsActive.Checked);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
-        else
-        {
-            lblError.Text = "Please fix the following errors: " + Error;
-        }
+        Response.Redirect("CustomerList.aspx");
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
