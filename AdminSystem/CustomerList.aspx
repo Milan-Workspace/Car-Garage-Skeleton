@@ -30,7 +30,7 @@
             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
             <asp:BoundField DataField="Email" HeaderText="Email" />
-            <asp:BoundField DataField="PhoneNumber" HeaderText="Phone" />
+            <asp:BoundField DataField="Phone" HeaderText="Phone" />
             <asp:BoundField DataField="DateRegistered" HeaderText="Date Registered" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:TemplateField HeaderText="Actions">
                 <ItemTemplate>
