@@ -44,3 +44,19 @@ C:\Car Garage Clone\Testing4\obj\Debug\TestingInvoicingInventory.csproj.CoreComp
 C:\Car Garage Clone\Testing4\obj\Debug\TestingI.DAF6C570.Up2Date
 C:\Car Garage Clone\Testing4\obj\Debug\Testing4.dll
 C:\Car Garage Clone\Testing4\obj\Debug\Testing4.pdb
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Testing4.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Testing4.pdb
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\ClassLibrary.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\ClassLibrary.pdb
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Car Garage Clone - May 19\Testing4\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Car Garage Clone - May 19\Testing4\obj\Debug\TestingInvoicingInventory.csproj.AssemblyReference.cache
+C:\Car Garage Clone - May 19\Testing4\obj\Debug\TestingInvoicingInventory.csproj.CoreCompileInputs.cache
+C:\Car Garage Clone - May 19\Testing4\obj\Debug\TestingI.DAF6C570.Up2Date
+C:\Car Garage Clone - May 19\Testing4\obj\Debug\Testing4.dll
+C:\Car Garage Clone - May 19\Testing4\obj\Debug\Testing4.pdb
