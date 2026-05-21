@@ -36,6 +36,12 @@
             <asp:CheckBox ID="chkIsPaid" runat="server" />
         </div>
 
+        <asp:Button ID="btnOk" runat="server" Text="OK" onClick="btnOK_Click"/>
+         <br />
+
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <br />
+
         <asp:Button ID="btnSubmit" runat="server" Text="Create Invoice" onClick="btnSubmit_Click" />
     </form>
 </body>
