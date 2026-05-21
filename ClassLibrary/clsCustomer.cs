@@ -59,28 +59,34 @@ namespace ClassLibrary
                 set { mIsActive = value; }
             }
 
-            public bool Find(int CustomerID)
+        public bool Find(int customerID)
+        {
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
             {
-                clsDataConnection DB = new clsDataConnection();
-                DB.AddParameter("@CustomerID", CustomerID);
-                DB.Execute("sproc_tbl_CustomerSelectByID");
-
-                if (DB.Count == 1)
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("sproc_tbl_CustomerSelectByID", conn))
                 {
-                    DataTable dt = DB.DataTable;
-                    mCustomerID = Convert.ToInt32(dt.Rows[0]["CustomerID"]);
-                    mFirstName = Convert.ToString(dt.Rows[0]["FirstName"]);
-                    mLastName = Convert.ToString(dt.Rows[0]["LastName"]);
-                    mEmail = Convert.ToString(dt.Rows[0]["Email"]);
-                    mPhone = Convert.ToString(dt.Rows[0]["Phone"]);
-                    mDateRegistered = Convert.ToDateTime(dt.Rows[0]["DateRegistered"]);
-                    mIsActive = Convert.ToBoolean(dt.Rows[0]["IsActive"]);
-                    return true;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    conn.Open();
+                    System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        mCustomerID = Convert.ToInt32(reader["CustomerID"]);
+                        mFirstName = reader["FirstName"].ToString();
+                        mLastName = reader["LastName"].ToString();
+                        mEmail = reader["Email"].ToString();
+                        mPhone = reader["PhoneNumber"].ToString();
+                        mDateRegistered = Convert.ToDateTime(reader["DateRegistered"]);
+                        mIsActive = Convert.ToBoolean(reader["isActive"]);
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
             }
+        }
 
-            public string Valid(string firstName, string lastName,
+        public string Valid(string firstName, string lastName,
                               string email, string phone)
             {
                 string Error = "";
