@@ -27,13 +27,13 @@
         </div>
 
         <div>
-            <label>Total Amount:</label>
-            <asp:TextBox ID="txtTotalAmount" runat="server" TextMode="Number" Step="0.01"></asp:TextBox>
+            <label>Is Paid:</label>
+            <asp:CheckBox ID="chkIsPaid" runat="server" />
         </div>
 
         <div>
-            <label>Is Paid:</label>
-            <asp:CheckBox ID="chkIsPaid" runat="server" />
+            <label>Total Amount:</label>
+            <asp:TextBox ID="txtTotalAmount" runat="server" TextMode="Number" Step="0.01"></asp:TextBox>
         </div>
 
         <asp:Button ID="btnOk" runat="server" Text="OK" onClick="btnOK_Click"/>

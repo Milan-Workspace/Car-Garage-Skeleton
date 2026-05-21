@@ -26,12 +26,20 @@ namespace Testing4
         }
 
         [TestMethod]
+        public void TestServiceIdProperty()
+        {
+            clsInvoicing invoicing = new clsInvoicing();
+            invoicing.ServiceId = 1;
+            Assert.AreEqual(1, invoicing.ServiceId);
+        }
+
+        [TestMethod]
         public void TestIssueDateProperty()
         {
             clsInvoicing invoicing = new clsInvoicing();
-            DateTime TestData = DateTime.Now.Date;
-            invoicing.IssueDate = TestData;
-            Assert.AreEqual(invoicing.IssueDate, TestData);
+            DateTime testData = DateTime.Now.Date;
+            invoicing.IssueDate = testData;
+            Assert.AreEqual(testData, invoicing.IssueDate);
         }
 
         [TestMethod]
