@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration.Provider;
+using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Data.SqlClient;
-using System.Data.OleDb;
-using System.Data;
 //using ClassControlLib; -> class lib 
 
 ///This class uses the ado.net sql classes to provide a connection to an Azure sql server database.
@@ -33,9 +34,7 @@ public class clsDataConnection
 
     private string GetConnectionString()
     {
-        System.Net.WebClient client = new System.Net.WebClient();
-        string downloadString = client.DownloadString("http://localhost:5000/");
-        return downloadString;
+        return "Server=v00egd00002l.lec-admin.dmu.ac.uk;Database=p2882530;User Id=p2882530;Password=IcyPondValley54#;";
     }
 
     public string GetDBName()

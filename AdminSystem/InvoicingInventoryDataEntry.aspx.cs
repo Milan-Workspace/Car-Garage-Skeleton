@@ -22,13 +22,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsInvoicing invoicing = new clsInvoicing();
-        invoicing.ServiceId = int.Parse(ddlServices.SelectedValue);
-        invoicing.IssueDate = DateTime.Parse(txtIssueDate.Text);
-        invoicing.PaymentDate = DateTime.Parse(txtPaymentDate.Text);
-        invoicing.IsPaid = chkIsPaid.Checked;
-        invoicing.TotalAmount = decimal.Parse(txtTotalAmount.Text);
-        Session["invoicing"] = invoicing;
-        Response.Redirect("InvoicingInventoryViewer.aspx");
+        string serviceId = ddlServices.SelectedValue;
+        string issueDate = txtIssueDate.Text;
+        string paymentDate = txtPaymentDate.Text;
+        string totalAmount = txtTotalAmount.Text;
+        bool isPaid = chkIsPaid.Checked;
+
+        string Error = "";
+        Error = invoicing.Valid(serviceId, issueDate, paymentDate, totalAmount);
+
+        if (Error == "")
+        {
+            invoicing.ServiceId = int.Parse(ddlServices.SelectedValue);
+            invoicing.IssueDate = DateTime.Parse(txtIssueDate.Text);
+            invoicing.PaymentDate = DateTime.Parse(txtPaymentDate.Text);
+            invoicing.IsPaid = chkIsPaid.Checked;
+            invoicing.TotalAmount = decimal.Parse(txtTotalAmount.Text);
+
+            Session["invoicing"] = invoicing;
+            Response.Redirect("InvoicingInventoryViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

@@ -36,6 +36,7 @@
             <asp:TextBox ID="txtTotalAmount" runat="server" TextMode="Number" Step="0.01"></asp:TextBox>
         </div>
 
+        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         <asp:Button ID="btnOk" runat="server" Text="OK" onClick="btnOK_Click"/>
          <br />
 

@@ -7,9 +7,10 @@
     <title></title>
 </head>
 <body>
+    This is the Invoice List Page
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <asp:ListBox ID="lstInvoiceList" runat="server" Rows="10"></asp:ListBox>
     </form>
 </body>
 </html>
+

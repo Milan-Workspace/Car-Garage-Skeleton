@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace ClassLibrary
 {
@@ -82,6 +84,8 @@ namespace ClassLibrary
             }
         }
 
+        public List<clsInvoicing> InvoicingList { get; set; }
+
         public bool Find(int InvoiceId)
         {
             mInvoiceId = 1;
@@ -91,6 +95,82 @@ namespace ClassLibrary
             mIsPaid = true;
             mTotalAmount = Convert.ToDecimal(99.99m);
             return true;
+        }
+
+        public string Valid(string serviceId, 
+            string issueDate, 
+            string paymentDate, 
+            string totalAmount)
+        {
+            string Error = "";
+            DateTime DateTemp;
+            DateTime DateComp = DateTime.Now.Date;
+            decimal AmountTemp;
+
+            if (serviceId == "")
+            {
+                Error = Error + "The serviceId may not be blank : ";
+            }
+
+            try
+            {
+                // Issue Date
+                DateTemp = Convert.ToDateTime(issueDate);
+
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The issueDate cannot be in the past :";
+                }
+
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The issueDate cannot be in the future : ";
+                }
+
+                // Payment Date
+                DateTemp = Convert.ToDateTime(paymentDate);
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The paymentDate may not be in the past : ";
+                }
+
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The paymentDate cannot be in the future : ";
+                }
+            }
+
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+
+
+            if (totalAmount == "")
+            {
+                Error = Error + "The totalAmount may not be blank :";
+            }
+            else {
+                if (!decimal.TryParse(totalAmount, out AmountTemp))
+                {
+                    Error = Error + "The totalAmount must be a valid decimal : ";
+                }
+
+                else
+                {
+                    if (AmountTemp < 0.01m)
+                    {
+                        Error = Error + "The totalAmount cannot be less than 0.01 :";
+                    }
+
+                    if (AmountTemp > 499.99m)
+                    {
+                        Error = Error + "The totalAmount cannot be more than 499.99";
+                    }
+                }
+            }
+
+                return Error;
         }
     }
 }
