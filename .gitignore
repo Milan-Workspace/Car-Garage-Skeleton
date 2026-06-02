@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+
+# Build folders
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+
+# Visual Studio indexes
+*.vsidx
+
+# Packages
+packages/
+
+# Test Results
+TestResults/
