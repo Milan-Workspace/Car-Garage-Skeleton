@@ -21,6 +21,7 @@
         </div>
         <div class="col-md-4 text-end">
             <asp:Button ID="btnAdd" runat="server" Text="Add Customer" CssClass="btn btn-success" OnClick="btnAdd_Click" />
+            <asp:Button ID="btnStats" runat="server" Text="View Statistics" CssClass="btn btn-info ms-2" OnClick="btnStats_Click" />
         </div>
     </div>
     <asp:GridView ID="gvCustomers" runat="server" CssClass="table table-bordered table-striped"
