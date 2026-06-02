@@ -34,6 +34,8 @@
             <asp:BoundField DataField="DateRegistered" HeaderText="Date Registered" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:TemplateField HeaderText="Actions">
                 <ItemTemplate>
+                    <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-sm btn-info"
+                        CommandArgument='<%# Eval("CustomerID") %>' OnClick="btnView_Click" />
                     <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-sm btn-warning"
                         CommandArgument='<%# Eval("CustomerID") %>' OnClick="btnEdit_Click" />
                     <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn btn-sm btn-danger"
