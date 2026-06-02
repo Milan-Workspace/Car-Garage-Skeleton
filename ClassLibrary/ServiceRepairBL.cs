@@ -6,22 +6,49 @@ namespace ClassLibrary
     {
         ServiceRepairDB db = new ServiceRepairDB();
 
-        // INSERT
-        public void AddService(ServiceRepair sr)
+        public int AddService(ServiceRepair sr)
         {
-            db.InsertServiceRecord(sr);
+            return db.AddServiceRecord(sr);
         }
 
-        // GET VEHICLES (for dropdown)
+        public void UpdateService(ServiceRepair sr)
+        {
+            db.UpdateServiceRecord(sr);
+        }
+
+        public void DeleteService(int serviceID)
+        {
+            db.DeleteServiceRecord(serviceID);
+        }
+
         public DataTable GetVehicles()
         {
             return db.GetVehicles();
         }
 
-        // GET PARTS (for dropdown)
         public DataTable GetParts()
         {
             return db.GetParts();
+        }
+
+        public DataTable GetAllServiceRecords()
+        {
+            return db.GetAllServiceRecords();
+        }
+
+        public DataTable FilterByStatus(string status)
+        {
+            return db.FilterByStatus(status);
+        }
+
+        public DataTable StatisticsByStatus()
+        {
+            return db.StatisticsByStatus();
+        }
+
+        public DataTable StatisticsByDate()
+        {
+            return db.StatisticsByDate();
         }
     }
 }
