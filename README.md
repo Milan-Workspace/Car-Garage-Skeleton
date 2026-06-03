@@ -54,7 +54,7 @@ The system uses a shared SQL Server database hosted on DMU servers. Five tables:
 ### Prerequisites
 - Visual Studio 2022
 - .NET Framework 4.8
-- Access to DMU SQL Server (on campus or via DMU Horizon)
+- Access to DMU SQL Server (on campus)
 
 4. Add an `app.config` to the `ClassLibrary` and `Testing1` projects with the same connection string
 
