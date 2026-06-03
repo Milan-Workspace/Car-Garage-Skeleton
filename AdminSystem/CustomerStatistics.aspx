@@ -7,6 +7,12 @@
 </head>
 <body>
 <form id="form1" runat="server">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="TeamMainMenu.aspx">Garage Management System</a>
+        <a class="btn btn-outline-light" href="MainMenu.aspx">Main Menu</a>
+    </div>
+    </nav>
 <div class="container mt-4">
     <h2>Customer Statistics</h2>
     <table class="table table-bordered w-50 mt-3">
