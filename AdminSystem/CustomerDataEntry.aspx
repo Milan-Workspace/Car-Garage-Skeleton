@@ -9,7 +9,7 @@
 <form id="form1" runat="server">
     <nav class="navbar navbar-dark bg-dark mb-4">
     <div class="container">
-        <a class="navbar-brand" href="TeamMainMenu.aspx">Garage Management System</a>
+        <a class="navbar-brand" href="MainMenu.aspx">Garage Management System</a>
         <a class="btn btn-outline-light" href="MainMenu.aspx">Main Menu</a>
     </div>
     </nav>
