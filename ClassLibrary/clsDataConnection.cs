@@ -182,6 +182,7 @@ public class clsDataConnection
         commandBuilder = new SqlCommandBuilder(dataChannel);
         //fill the data adapter
         dataChannel.Fill(dataTable);
+
         //close the connection
         connectionToDB.Close();
         //return the result of the stored procedure

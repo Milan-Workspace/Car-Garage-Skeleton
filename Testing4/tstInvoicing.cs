@@ -146,6 +146,7 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
         public void TestIsPaidFound()
         {
             clsInvoicing invoicing = new clsInvoicing();
@@ -162,6 +163,7 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
         public void TestTotalAmountFound()
         {
             clsInvoicing invoicing = new clsInvoicing();
