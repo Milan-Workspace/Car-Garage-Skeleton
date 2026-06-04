@@ -77,4 +77,9 @@ public partial class _1_List : System.Web.UI.Page
         Session["CustomerID"] = btn.CommandArgument;
         Response.Redirect("CustomerConfirmDelete.aspx");
     }
+
+    protected void btnStats_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerStatistics.aspx");
+    }
 }
