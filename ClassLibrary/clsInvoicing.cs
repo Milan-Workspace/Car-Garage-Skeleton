@@ -105,9 +105,9 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string serviceId, 
-            string issueDate, 
-            string paymentDate, 
+        public string Valid(string serviceId,
+            string issueDate,
+            string paymentDate,
             string totalAmount)
         {
             string Error = "";
@@ -125,6 +125,11 @@ namespace ClassLibrary
                 // Issue Date
                 DateTemp = Convert.ToDateTime(issueDate);
 
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The issueDate cannot be in the past :";
+                }
+
                 if (DateTemp > DateComp)
                 {
                     Error = Error + "The issueDate cannot be in the future : ";
@@ -135,6 +140,11 @@ namespace ClassLibrary
                 if (DateTemp < DateComp)
                 {
                     Error = Error + "The paymentDate may not be in the past : ";
+                }
+
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The paymentDate cannot be in the future : ";
                 }
             }
 
@@ -148,7 +158,8 @@ namespace ClassLibrary
             {
                 Error = Error + "The totalAmount may not be blank :";
             }
-            else {
+            else
+            {
                 if (!decimal.TryParse(totalAmount, out AmountTemp))
                 {
                     Error = Error + "The totalAmount must be a valid decimal : ";
@@ -168,7 +179,7 @@ namespace ClassLibrary
                 }
             }
 
-                return Error;
+            return Error;
         }
     }
 }
