@@ -46,6 +46,7 @@
     <Compile Include="clsCustomerCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsInvoicing.cs" />
+    <Compile Include="clsVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceRepair.cs" />
     <Compile Include="ServiceRepairBL.cs" />

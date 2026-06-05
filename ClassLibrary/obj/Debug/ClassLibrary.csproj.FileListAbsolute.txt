@@ -1,0 +1,7 @@
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\bin\Debug\ClassLibrary.dll.config
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\P2801699\Source\Repos\Car-Garage-Skeleton\ClassLibrary\obj\Debug\ClassLibrary.pdb
