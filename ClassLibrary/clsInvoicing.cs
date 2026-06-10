@@ -114,49 +114,70 @@ namespace ClassLibrary
             DateTime DateTemp;
             DateTime DateComp = DateTime.Now.Date;
             decimal AmountTemp;
+            int IdTemp;
 
             if (serviceId == "")
             {
                 Error = Error + "The serviceId may not be blank : ";
             }
-
-            try
+            else
             {
-                // Issue Date
-                DateTemp = Convert.ToDateTime(issueDate);
-
-                if (DateTemp < DateComp)
+                if (!int.TryParse(serviceId, out IdTemp))
                 {
-                    Error = Error + "The issueDate cannot be in the past :";
+                    Error = Error + "The serviceId must be a valid integer : ";
                 }
-
-                if (DateTemp > DateComp)
+                else
                 {
-                    Error = Error + "The issueDate cannot be in the future : ";
-                }
 
-                // Payment Date
-                DateTemp = Convert.ToDateTime(paymentDate);
-                if (DateTemp < DateComp)
-                {
-                    Error = Error + "The paymentDate may not be in the past : ";
-                }
+                    if (IdTemp < 1)
+                    {
+                        Error = Error + "The serviceId cannot be less than 1 :";
+                    }
 
-                if (DateTemp > DateComp)
-                {
-                    Error = Error + "The paymentDate cannot be in the future : ";
+                    if (IdTemp > 10)
+                    {
+                        Error = Error + "The serviceId cannot be more than 10 : ";
+                    }
                 }
             }
 
-            catch
-            {
-                Error = Error + "The date was not a valid date : ";
-            }
+                try
+                {
+                    // Issue Date
+                    DateTemp = Convert.ToDateTime(issueDate);
+
+                    if (DateTemp < DateComp)
+                    {
+                        Error = Error + "The issueDate cannot be in the past : ";
+                    }
+
+                    if (DateTemp > DateComp)
+                    {
+                        Error = Error + "The issueDate cannot be in the future : ";
+                    }
+
+                    // Payment Date
+                    DateTemp = Convert.ToDateTime(paymentDate);
+                    if (DateTemp < DateComp)
+                    {
+                        Error = Error + "The paymentDate may not be in the past : ";
+                    }
+
+                    if (DateTemp > DateComp)
+                    {
+                        Error = Error + "The paymentDate cannot be in the future : ";
+                    }
+                }
+
+                catch
+                {
+                    Error = Error + "The date was not a valid date : ";
+                }
 
 
             if (totalAmount == "")
             {
-                Error = Error + "The totalAmount may not be blank :";
+                Error = Error + "The totalAmount may not be blank : ";
             }
             else
             {
@@ -169,12 +190,12 @@ namespace ClassLibrary
                 {
                     if (AmountTemp < 0.01m)
                     {
-                        Error = Error + "The totalAmount cannot be less than 0.01 :";
+                        Error = Error + "The totalAmount cannot be less than 0.01 : ";
                     }
 
                     if (AmountTemp > 499.99m)
                     {
-                        Error = Error + "The totalAmount cannot be more than 499.99";
+                        Error = Error + "The totalAmount cannot be more than 499.99 : ";
                     }
                 }
             }
