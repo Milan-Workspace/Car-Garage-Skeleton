@@ -57,13 +57,6 @@ public partial class _1_List : System.Web.UI.Page
         Response.Redirect("CustomerDataEntry.aspx");
     }
 
-    protected void btnView_Click(object sender, EventArgs e)
-    {
-        Button btn = (Button)sender;
-        Session["CustomerID"] = btn.CommandArgument;
-        Response.Redirect("CustomerViewer.aspx");
-    }
-
     protected void btnEdit_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
@@ -76,10 +69,5 @@ public partial class _1_List : System.Web.UI.Page
         Button btn = (Button)sender;
         Session["CustomerID"] = btn.CommandArgument;
         Response.Redirect("CustomerConfirmDelete.aspx");
-    }
-
-    protected void btnStats_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("CustomerStatistics.aspx");
     }
 }
