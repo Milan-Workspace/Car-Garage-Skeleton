@@ -7,9 +7,11 @@
     <title></title>
 </head>
 <body>
-    This is the Order Data Confirm Delete Page.
     <form id="form1" runat="server">
         <div>
+            Are you sure you want to delete this record?
+            <asp:Button ID="yes" Text="Yes" runat="server" />
+            <asp:Button ID="no" Text="No" runat="server" />
         </div>
     </form>
 </body>

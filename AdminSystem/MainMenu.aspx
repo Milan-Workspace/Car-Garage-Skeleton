@@ -63,9 +63,9 @@
                     <h4 class="mb-0">Invoicing & Inventory</h4>
                 </div>
                 <div class="card-body d-flex flex-column gap-2">
-                    <button class="btn btn-outline-success" disabled>Invoice List</button>
-                    <button class="btn btn-outline-success" disabled>Add Invoice</button>
-                    <button class="btn btn-outline-success" disabled>Invoice Statistics</button>
+                     <a href="InvoicingInventoryList.aspx" class="btn btn-outline-success">Invoice List</a>
+                     <a href="InvoicingInventoryDataEntry.aspx" class="btn btn-outline-success">Add Invoice</a>
+                     <a href="InvoicingInventoryStatistics.aspx" class="btn btn-outline-success">Invoice Statistics</a>
                 </div>
             </div>
         </div>
