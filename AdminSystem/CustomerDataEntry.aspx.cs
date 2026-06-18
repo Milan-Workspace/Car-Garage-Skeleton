@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using ClassLibrary;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,9 +13,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (!IsPostBack)
         {
             if (Session["CustomerID"] != null)
-            {
                 DisplayCustomer();
-            }
         }
     }
 
