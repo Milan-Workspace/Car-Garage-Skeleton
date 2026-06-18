@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using ClassLibrary;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 

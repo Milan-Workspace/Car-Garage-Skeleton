@@ -35,9 +35,9 @@
                     <h4 class="mb-0">Vehicle Management</h4>
                 </div>
                 <div class="card-body d-flex flex-column gap-2">
-                    <button class="btn btn-outline-secondary" disabled>Vehicle List</button>
-                    <button class="btn btn-outline-secondary" disabled>Add Vehicle</button>
-                    <button class="btn btn-outline-secondary" disabled>Vehicle Statistics</button>
+                    <button class="btn btn-outline-secondary" disabled="disabled">Vehicle List</button>
+                    <button class="btn btn-outline-secondary" disabled="disabled">Add Vehicle</button>
+                    <button class="btn btn-outline-secondary" disabled="disabled">Vehicle Statistics</button>
                 </div>
             </div>
         </div>
@@ -49,9 +49,9 @@
                     <h4 class="mb-0">Service & Repair</h4>
                 </div>
                 <div class="card-body d-flex flex-column gap-2">
-                    <button class="btn btn-outline-warning" disabled>Service List</button>
-                    <button class="btn btn-outline-warning" disabled>Add Service</button>
-                    <button class="btn btn-outline-warning" disabled>Service Statistics</button>
+                    <button class="btn btn-outline-warning" disabled="disabled">Service List</button>
+                    <button class="btn btn-outline-warning" disabled="disabled">Add Service</button>
+                    <button class="btn btn-outline-warning" disabled="disabled">Service Statistics</button>
                 </div>
             </div>
         </div>
@@ -63,9 +63,9 @@
                     <h4 class="mb-0">Invoicing & Inventory</h4>
                 </div>
                 <div class="card-body d-flex flex-column gap-2">
-                    <button class="btn btn-outline-success" disabled>Invoice List</button>
-                    <button class="btn btn-outline-success" disabled>Add Invoice</button>
-                    <button class="btn btn-outline-success" disabled>Invoice Statistics</button>
+                    <button class="btn btn-outline-success" disabled="disabled">Invoice List</button>
+                    <button class="btn btn-outline-success" disabled="disabled">Add Invoice</button>
+                    <button class="btn btn-outline-success" disabled="disabled">Invoice Statistics</button>
                 </div>
             </div>
         </div>
